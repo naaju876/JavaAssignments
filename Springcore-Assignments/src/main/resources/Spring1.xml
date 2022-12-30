@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="customer" class="com.springcore.assignment.Customer">
+		<property name="customerId" value="222" />
+		<property name="customerName" value="naaju" />
+		<property name="customerContact" value="0000000000" />
+		<property name="customerAddress" ref="custAddress" />
+
+	</bean>
+	<bean id="custAddress" class="com.springcore.assignment.Address">
+		<property name="street" value="Sim" />
+		<property name="city" value="bpl" />
+		<property name="state" value="AP" />
+		<property name="country" value="India" />
+		<property name="zip" value="518124" />
+	</bean>
+	<bean id="customerCon" class="com.springcore.assignment.Customer">
+		<constructor-arg type="int" value="111" />
+		<constructor-arg value="Habib" />
+		<constructor-arg value="9059909632" />
+		<constructor-arg ref="custAddressCon" />
+	</bean>
+	<bean id="custAddressCon"
+		class="com.springcore.assignment.Address">
+		<constructor-arg value="Sim" />
+		<constructor-arg value="bpl" />
+		<constructor-arg value="AP" />
+		<constructor-arg value="India" />
+		<constructor-arg value="518124" />
+	</bean>
+
+
+	<context:annotation-config />
+</beans>
